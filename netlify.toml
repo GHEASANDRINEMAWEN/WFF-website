@@ -1,0 +1,28 @@
+[build]
+  # Static site: no build step, files are served straight from the repo root.
+  publish = "."
+  command = ""
+
+# The concept notes and the old site zip live in the repo but are not part of
+# the published site. Without these rules they would be downloadable by URL.
+[[redirects]]
+  from = "/*.docx"
+  to = "/index.html"
+  status = 404
+
+[[redirects]]
+  from = "/*.zip"
+  to = "/index.html"
+  status = 404
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
