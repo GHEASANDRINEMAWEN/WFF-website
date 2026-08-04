@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LCOY Rwanda 2026 — World Food Forum Rwanda</title>
+<meta name="description" content="LCOY Rwanda 2026 — the Local Conference of Youth on Climate Change. A youth-led Climate Month from September 26 to October 29, 2026, reaching 2,900–5,000+ young Rwandans.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--blue:#009FDA;--blue-deep:#0077A8;--blue-soft:#E8F6FC;--yellow:#F5A623;--yellow-bright:#FFC107;--yellow-soft:#FFF8E7;--yellow-glow:rgba(245,166,35,0.08);--green:#2E9E5B;--green-soft:#E9F7EF;--cream:#FFFDF7;--white:#FFFFFF;--dark:#0F1419;--text:#374151;--muted:#9CA3AF;--border:#F0F0F0;--font:'Sora',sans-serif;--mono:'Space Mono',monospace;--max:1320px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);color:var(--text);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}a{color:inherit;text-decoration:none;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 48px;}
+
+/* PROGRESS BAR */
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--yellow),var(--blue));z-index:10000;width:0%;transition:width 0.1s;}
+
+/* TICKER */
+.ticker{background:var(--yellow);padding:10px 0;overflow:hidden;white-space:nowrap;margin-top:64px;position:relative;z-index:5;}
+.ticker-track{display:inline-flex;animation:scroll-left 38s linear infinite;}
+.ticker-track:hover{animation-play-state:paused;}
+.ticker-item{display:inline-flex;align-items:center;gap:12px;padding:0 42px;font-size:0.76rem;font-weight:700;color:var(--dark);text-transform:uppercase;letter-spacing:0.08em;}
+.ticker-item .sep{width:4px;height:4px;border-radius:50%;background:rgba(0,0,0,0.2);}
+@keyframes scroll-left{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;height:64px;background:rgba(255,255,255,0.8);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);transition:all 0.4s;}
+.nav.shadow{box-shadow:0 1px 0 var(--border);background:rgba(255,255,255,0.92);}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:100%;}
+.nav-logo{display:flex;align-items:center;gap:10px;transition:transform 0.3s;}.nav-logo:hover{transform:scale(1.02);}
+.nav-logo img{height:36px;}.nav-logo span{width:1px;height:24px;background:#E5E7EB;}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{font-size:0.84rem;font-weight:500;color:var(--muted);transition:all 0.25s;position:relative;padding:6px 0;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--yellow);border-radius:2px;transition:width 0.3s cubic-bezier(0.16,1,0.3,1);}
+.nav-links a:hover,.nav-links a.active{color:var(--dark);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-cta{background:var(--yellow)!important;color:var(--dark)!important;padding:9px 22px!important;border-radius:100px;font-weight:700!important;font-size:0.82rem;transition:all 0.3s;box-shadow:0 2px 8px rgba(245,166,35,0.25);}
+.nav-cta::after{display:none!important;}
+.nav-cta:hover{background:var(--yellow-bright)!important;transform:translateY(-2px) scale(1.03);box-shadow:0 6px 20px rgba(245,166,35,0.35);}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:6px;}.burger div{width:20px;height:1.5px;background:var(--dark);margin:5px 0;border-radius:2px;}
+
+/* ===== HERO ===== */
+.chero{position:relative;min-height:calc(92vh - 104px);display:flex;align-items:center;overflow:hidden;background:linear-gradient(160deg,#0B2E22 0%,#0F1419 55%,#0B2138 100%);color:var(--white);}
+.chero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 12% 20%,rgba(46,158,91,0.28) 0%,transparent 45%),radial-gradient(ellipse at 88% 85%,rgba(0,159,218,0.22) 0%,transparent 45%),radial-gradient(ellipse at 70% 15%,rgba(245,166,35,0.14) 0%,transparent 40%);pointer-events:none;animation:hue 16s ease-in-out infinite alternate;}
+@keyframes hue{to{filter:hue-rotate(18deg);}}
+/* floating leaf/orb decor */
+.chero-orb{position:absolute;border-radius:50%;pointer-events:none;z-index:1;}
+.chero-orb.o1{width:340px;height:340px;background:radial-gradient(circle,rgba(46,158,91,0.16),transparent 68%);top:-90px;right:6%;animation:cdrift 13s ease-in-out infinite;}
+.chero-orb.o2{width:220px;height:220px;background:radial-gradient(circle,rgba(0,159,218,0.14),transparent 68%);bottom:4%;left:2%;animation:cdrift 17s ease-in-out infinite reverse;}
+.chero-orb.o3{width:10px;height:10px;background:var(--yellow-bright);opacity:0.5;top:24%;right:16%;animation:cdrift 6s ease-in-out infinite;}
+.chero-orb.o4{width:7px;height:7px;background:#5FD693;opacity:0.6;bottom:26%;right:30%;animation:cdrift 5s ease-in-out infinite 0.6s;}
+.chero-orb.o5{width:8px;height:8px;background:var(--blue);opacity:0.5;top:60%;left:12%;animation:cdrift 7s ease-in-out infinite 0.3s;}
+@keyframes cdrift{0%,100%{transform:translate(0,0);}25%{transform:translate(8px,-14px);}75%{transform:translate(-8px,10px);}}
+.chero-inner{max-width:var(--max);margin:0 auto;padding:72px 48px;position:relative;z-index:2;width:100%;}
+.chero-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:0.72rem;font-weight:600;color:var(--yellow-bright);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:26px;background:rgba(245,166,35,0.12);padding:8px 20px;border-radius:100px;border:1px solid rgba(245,166,35,0.25);}
+.chero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:800;line-height:1.03;letter-spacing:-0.035em;margin-bottom:24px;max-width:16ch;}
+.chero h1 .yel{color:var(--yellow-bright);}.chero h1 .grn{color:#5FD693;}
+.chero-sub{font-size:1.12rem;line-height:1.75;color:rgba(255,255,255,0.72);max-width:620px;margin-bottom:38px;font-weight:300;}
+.chero-meta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px;}
+.chero-chip{display:inline-flex;align-items:center;gap:9px;padding:11px 20px;border-radius:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);font-size:0.86rem;font-weight:500;color:rgba(255,255,255,0.9);backdrop-filter:blur(6px);}
+.chero-chip i{color:var(--yellow-bright);}
+.chero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;border-radius:100px;font-weight:600;font-size:0.9rem;font-family:var(--font);border:none;cursor:pointer;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);}
+.btn-yellow{background:var(--yellow);color:var(--dark);box-shadow:0 2px 12px rgba(245,166,35,0.3);}
+.btn-yellow:hover{transform:translateY(-3px);background:var(--yellow-bright);box-shadow:0 8px 28px rgba(245,166,35,0.4);}
+.btn-ghost{background:rgba(255,255,255,0.07);color:var(--white);border:1.5px solid rgba(255,255,255,0.22);}
+.btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,0.12);transform:translateY(-2px);}
+.btn-dark{background:var(--dark);color:var(--white);}
+.btn-dark:hover{background:#1F2937;transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.18);}
+
+/* COUNTDOWN */
+.cd-label{display:flex;align-items:center;gap:8px;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:14px;}
+.cd-label i{color:var(--yellow-bright);}
+.countdown{display:flex;gap:12px;margin-bottom:38px;flex-wrap:wrap;}
+.cd-box{min-width:82px;padding:16px 14px;border-radius:16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);text-align:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),border-color 0.35s;}
+.cd-box:hover{transform:translateY(-4px);border-color:rgba(245,166,35,0.4);}
+.cd-num{display:block;font-family:var(--mono);font-size:2rem;font-weight:700;color:#fff;line-height:1;font-variant-numeric:tabular-nums;}
+.cd-lbl{display:block;font-size:0.64rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.55);margin-top:9px;}
+
+/* ===== COUNTDOWN / STATS ===== */
+.stat-strip{background:var(--white);padding:0;position:relative;z-index:3;}
+.stat-strip .wrap{transform:translateY(-42px);}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.stat-card{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:26px 24px;text-align:center;box-shadow:0 16px 40px rgba(0,0,0,0.06);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
+.stat-card:hover{transform:translateY(-6px);}
+.stat-card .s-num{font-family:var(--mono);font-size:2.1rem;font-weight:700;line-height:1;background:linear-gradient(135deg,var(--yellow),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-card .s-lbl{font-size:0.78rem;color:var(--muted);font-weight:500;margin-top:8px;}
+
+/* ===== SECTION SHELL ===== */
+section.blk{padding:100px 0;position:relative;}
+.blk.cream{background:var(--cream);}
+.sec-header{margin-bottom:52px;}.center{text-align:center;}
+.eyebrow-y{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;display:inline-flex;align-items:center;gap:8px;justify-content:center;}
+.eyebrow-y::before{content:'';width:24px;height:2px;background:var(--yellow);border-radius:2px;}
+.sec-title{font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:800;color:var(--dark);letter-spacing:-0.03em;line-height:1.12;}
+.sec-sub{font-size:0.95rem;color:var(--muted);max-width:560px;margin:14px auto 0;line-height:1.7;}
+
+/* About split */
+.about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;}
+.about-copy h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--dark);letter-spacing:-0.025em;line-height:1.18;margin-bottom:20px;}
+.about-copy p{font-size:0.96rem;line-height:1.85;margin-bottom:16px;}
+.about-copy strong{color:var(--dark);font-weight:600;}
+.about-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:8px;box-shadow:0 24px 64px rgba(0,0,0,0.07);}
+.about-card img{border-radius:14px;aspect-ratio:4/3;object-fit:cover;width:100%;}
+.about-facts{list-style:none;margin-top:20px;padding:0 16px 8px;}
+.about-facts li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--border);font-size:0.86rem;}
+.about-facts li:last-child{border-bottom:none;}
+.about-facts i{color:var(--green);margin-top:3px;}
+
+/* Themes grid */
+.themes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.t-card{padding:26px 22px;border-radius:16px;background:var(--white);border:1px solid var(--border);transition:all 0.45s cubic-bezier(0.16,1,0.3,1);}
+.t-card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(0,0,0,0.07);border-color:transparent;}
+.t-ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;margin-bottom:16px;}
+.t-card:nth-child(3n+1) .t-ico{background:var(--green-soft);color:var(--green);}
+.t-card:nth-child(3n+2) .t-ico{background:var(--yellow-soft);color:var(--yellow);}
+.t-card:nth-child(3n+3) .t-ico{background:var(--blue-soft);color:var(--blue);}
+.t-card h3{font-size:0.92rem;font-weight:700;color:var(--dark);margin-bottom:7px;line-height:1.3;}
+.t-card p{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+
+/* Timeline */
+.tl{max-width:860px;margin:0 auto;position:relative;padding-left:8px;}
+.tl::before{content:'';position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--green),var(--yellow),var(--blue));border-radius:2px;}
+.tl-item{position:relative;padding:0 0 34px 62px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--white);border:3px solid var(--yellow);display:flex;align-items:center;justify-content:center;z-index:1;}
+.tl-dot::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--yellow);}
+.tl-item:nth-child(1) .tl-dot{border-color:var(--green);}.tl-item:nth-child(1) .tl-dot::after{background:var(--green);}
+.tl-item:nth-child(5) .tl-dot{border-color:var(--blue);}.tl-item:nth-child(5) .tl-dot::after{background:var(--blue);}
+.tl-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:22px 26px;transition:all 0.35s;}
+.tl-card:hover{box-shadow:0 12px 32px rgba(0,0,0,0.05);transform:translateX(4px);}
+.tl-date{font-family:var(--mono);font-size:0.72rem;font-weight:700;color:var(--blue);letter-spacing:0.03em;text-transform:uppercase;margin-bottom:6px;}
+.tl-card h3{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.tl-card p{font-size:0.85rem;color:var(--muted);line-height:1.6;}
+.tl-reach{display:inline-block;margin-top:10px;font-size:0.72rem;font-weight:700;color:var(--green);background:var(--green-soft);padding:4px 12px;border-radius:100px;}
+
+/* Legacy */
+.legacy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.lg-card{text-align:center;padding:34px 22px;border-radius:18px;background:var(--white);border:1px solid var(--border);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
+.lg-card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(0,0,0,0.06);}
+.lg-card .lg-num{font-family:var(--mono);font-size:2.3rem;font-weight:700;line-height:1;color:var(--green);}
+.lg-card .lg-txt{font-size:0.85rem;color:var(--text);font-weight:500;margin-top:10px;line-height:1.5;}
+
+/* CTA banner */
+.cta-banner{position:relative;border-radius:24px;overflow:hidden;padding:64px 56px;text-align:center;background:linear-gradient(135deg,#0B2E22,#0B2138);color:var(--white);}
+.cta-banner::before{content:'';position:absolute;top:-80px;right:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,0.2),transparent 65%);}
+.cta-banner::after{content:'';position:absolute;bottom:-90px;left:-50px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(0,159,218,0.18),transparent 65%);}
+.cta-banner>*{position:relative;z-index:1;}
+.cta-banner h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:14px;}
+.cta-banner p{font-size:1rem;color:rgba(255,255,255,0.72);max-width:560px;margin:0 auto 30px;line-height:1.7;}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+/* ===== FOOTER ===== */
+footer{background:var(--dark);color:rgba(255,255,255,0.5);padding:56px 0 0;position:relative;z-index:1;}
+.ft-flag{height:4px;background:linear-gradient(90deg,var(--blue) 33%,var(--yellow-bright) 33% 66%,#008751 66%);}
+.ft-inner{max-width:var(--max);margin:0 auto;padding:0 48px;}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:56px;padding:56px 0 44px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.ft-brand img{height:36px;filter:brightness(0) invert(1);margin-bottom:14px;}
+.ft-brand p{font-size:0.86rem;line-height:1.75;margin-bottom:18px;}
+.ft-socials{display:flex;gap:8px;}
+.ft-soc{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.45);display:flex;align-items:center;justify-content:center;font-size:0.9rem;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);}
+.ft-soc:hover{background:var(--yellow);color:var(--dark);transform:translateY(-3px);}
+footer h4{color:var(--white);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:18px;}
+.ft-links{list-style:none;}.ft-links li{margin-bottom:12px;}.ft-links a{font-size:0.86rem;transition:all 0.25s;}.ft-links a:hover{color:var(--yellow);padding-left:4px;}
+.ft-bottom{padding:24px 0;display:flex;justify-content:space-between;align-items:center;font-size:0.73rem;}
+.ft-bottom a:hover{color:var(--yellow);}
+
+/* Reveal */
+.r{opacity:0;transform:translateY(32px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1);}.r.v{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* Responsive */
+@media(max-width:1024px){.wrap,.nav-inner,.ft-inner,.chero-inner{padding-left:32px;padding-right:32px;}.themes-grid{grid-template-columns:1fr 1fr;}.legacy-grid,.stat-grid{grid-template-columns:1fr 1fr;}.about-grid{grid-template-columns:1fr;gap:36px;}.ft-top{grid-template-columns:1fr;}}
+@media(max-width:600px){.nav-links{display:none;}.burger{display:block;}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);padding:20px 32px;gap:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);border-top:1px solid var(--border);}.themes-grid,.legacy-grid,.stat-grid{grid-template-columns:1fr;}section.blk{padding:64px 0;}.cta-banner,.chero-inner{padding-left:28px;padding-right:28px;}.tl-item{padding-left:54px;}.ft-bottom{flex-direction:column;gap:8px;text-align:center;}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="images/wff-rwanda-logo.png" alt="WFF Rwanda"><span></span><img src="images/fao-logo.png" alt="FAO" style="height:26px;"></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#who">Who We Are</a></li>
+      <li><a href="index.html#groups">What We Do</a></li>
+      <li><a href="lcoy-2026.html" class="active">LCOY 2026</a></li>
+      <li><a href="index.html#events">Events</a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSc05fQWdb0bnw5-J1wHMxsNk0yUPEoSePlmW-2PGy-hrqqUSA/viewform?usp=header" target="_blank" rel="noopener" class="nav-cta"><i class="fa-solid fa-pen-to-square" style="font-size:0.65rem;"></i> Register</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu"><div></div><div></div><div></div></button>
+  </div>
+</nav>
+
+<div class="ticker"><div class="ticker-track">
+  <span class="ticker-item">Local Conference of Youth on Climate Change <span class="sep"></span></span><span class="ticker-item">Sept 26 &ndash; Oct 29, 2026 <span class="sep"></span></span><span class="ticker-item">30 Districts &middot; 4 Provinces &middot; Kigali <span class="sep"></span></span><span class="ticker-item">Approved by YOUNGO &middot; UNFCCC <span class="sep"></span></span><span class="ticker-item">Road to COP31 &middot; Antalya <span class="sep"></span></span><span class="ticker-item">2,900&ndash;5,000+ Young Rwandans <span class="sep"></span></span>
+  <span class="ticker-item">Local Conference of Youth on Climate Change <span class="sep"></span></span><span class="ticker-item">Sept 26 &ndash; Oct 29, 2026 <span class="sep"></span></span><span class="ticker-item">30 Districts &middot; 4 Provinces &middot; Kigali <span class="sep"></span></span><span class="ticker-item">Approved by YOUNGO &middot; UNFCCC <span class="sep"></span></span><span class="ticker-item">Road to COP31 &middot; Antalya <span class="sep"></span></span><span class="ticker-item">2,900&ndash;5,000+ Young Rwandans <span class="sep"></span></span>
+</div></div>
+
+<!-- HERO -->
+<header class="chero">
+  <span class="chero-orb o1"></span><span class="chero-orb o2"></span><span class="chero-orb o3"></span><span class="chero-orb o4"></span><span class="chero-orb o5"></span>
+  <div class="chero-inner">
+    <div class="chero-eyebrow"><i class="fa-solid fa-earth-africa"></i> Local Conference of Youth on Climate Change</div>
+    <h1>LCOY Rwanda <span class="yel">2026</span><br>A full <span class="grn">Climate Month</span> of youth action.</h1>
+    <p class="chero-sub">Rwanda's second Local Conference of Youth — officially approved by the LCOY Working Group under YOUNGO, the Children &amp; Youth Constituency of the UNFCCC. A participatory, youth-led journey from every village to the global stage.</p>
+    <div class="chero-meta">
+      <span class="chero-chip"><i class="fa-regular fa-calendar"></i> Sept 26 – Oct 29, 2026</span>
+      <span class="chero-chip"><i class="fa-solid fa-location-dot"></i> All 30 districts &amp; 4 provinces + Kigali</span>
+      <span class="chero-chip"><i class="fa-solid fa-users"></i> 2,900–5,000+ youth</span>
+    </div>
+    <div class="cd-label"><i class="fa-solid fa-hourglass-half"></i> Climate Month begins in</div>
+    <div class="countdown" id="countdown">
+      <div class="cd-box"><span class="cd-num" id="cd-days">--</span><span class="cd-lbl">Days</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-hours">--</span><span class="cd-lbl">Hours</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-mins">--</span><span class="cd-lbl">Minutes</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-secs">--</span><span class="cd-lbl">Seconds</span></div>
+    </div>
+    <div class="chero-actions">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc05fQWdb0bnw5-J1wHMxsNk0yUPEoSePlmW-2PGy-hrqqUSA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-yellow">Register Now <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="#programme" class="btn btn-ghost">See the Programme</a>
+    </div>
+  </div>
+</header>
+
+<!-- STAT STRIP -->
+<div class="stat-strip"><div class="wrap"><div class="stat-grid">
+  <div class="stat-card r"><div class="s-num">35</div><div class="s-lbl">Days of Climate Month</div></div>
+  <div class="stat-card r d1"><div class="s-num">30</div><div class="s-lbl">District Dialogues</div></div>
+  <div class="stat-card r d2"><div class="s-num">8</div><div class="s-lbl">Thematic Areas</div></div>
+  <div class="stat-card r d3"><div class="s-num">5,000+</div><div class="s-lbl">Youth Reached</div></div>
+</div></div></div>
+
+<!-- ABOUT -->
+<section class="blk" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-copy r">
+        <div class="eyebrow-y" style="justify-content:flex-start;">About the Conference</div>
+        <h2>Youth voices, from the grassroots to COP31.</h2>
+        <p>The <strong>Local Conference of Youth (LCOY)</strong> is an official youth-led process under YOUNGO. Since 2013, over 50 countries have hosted LCOYs, feeding national youth priorities into the <strong>Global Youth Statement</strong> presented at the annual UN climate conference (COP).</p>
+        <p>Rwanda's youth represent <strong>65% of the population</strong> yet have historically lacked a structured, youth-led platform to shape national climate processes. LCOY Rwanda 2026 fills that gap — producing a validated <strong>National Children &amp; Youth Climate Position Paper</strong> submitted to the Ministry of Environment and YOUNGO, and carried by a youth delegation to <strong>COP31 in Antalya, Turkey (Nov 9–20, 2026)</strong>.</p>
+        <p>The conference is guided by six principles: youth-led, participatory, culturally grounded, inclusive by design, action-oriented, and grassroots-to-global.</p>
+      </div>
+      <div class="about-card r d2">
+        <img src="images/panel.jpeg" alt="Youth climate dialogue in Rwanda">
+        <ul class="about-facts">
+          <li><i class="fa-solid fa-flag-checkered"></i><span><strong>Approved by</strong> the LCOY Working Group under YOUNGO (UNFCCC)</span></li>
+          <li><i class="fa-solid fa-people-group"></i><span><strong>Organised by</strong> 11 Technical Working Groups &amp; 50+ youth leaders</span></li>
+          <li><i class="fa-solid fa-landmark"></i><span><strong>Feeds into</strong> Rwanda's NDCs 3.0, NBSAP &amp; the Global Youth Statement</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THEMES -->
+<section class="blk cream" id="themes">
+  <div class="wrap">
+    <div class="sec-header center">
+      <div class="eyebrow-y">Thematic Focus</div>
+      <div class="sec-title">Eight themes, one climate movement.</div>
+      <div class="sec-sub">Technology &amp; digital climate action is both a standalone theme and cross-cutting across every area.</div>
+    </div>
+    <div class="themes-grid">
+      <div class="t-card r"><div class="t-ico"><i class="fa-solid fa-seedling"></i></div><h3>Climate-Resilient Agriculture &amp; Food Systems</h3><p>Climate-smart practices, agroecology, youth agripreneurship, nutrition and food security.</p></div>
+      <div class="t-card r d1"><div class="t-ico"><i class="fa-solid fa-tree"></i></div><h3>Biodiversity &amp; Ecosystem Restoration</h3><p>Nature-based solutions and forest landscape restoration across Rwanda's national parks.</p></div>
+      <div class="t-card r d2"><div class="t-ico"><i class="fa-solid fa-bolt"></i></div><h3>Just Energy Transition &amp; Green Jobs</h3><p>Renewable energy access, circular economy and green employment pathways.</p></div>
+      <div class="t-card r d3"><div class="t-ico"><i class="fa-solid fa-house-flood-water"></i></div><h3>Loss &amp; Damage + Climate Mobility</h3><p>Disaster risk reduction, climate finance, refugees, IDPs and forced migration.</p></div>
+      <div class="t-card r"><div class="t-ico"><i class="fa-solid fa-venus"></i></div><h3>Gender Justice &amp; Just Transition</h3><p>Women's climate leadership, empowerment and gender-responsive action.</p></div>
+      <div class="t-card r d1"><div class="t-ico"><i class="fa-solid fa-graduation-cap"></i></div><h3>Action for Climate Empowerment (ACE)</h3><p>Climate education, awareness, public participation and access to information.</p></div>
+      <div class="t-card r d2"><div class="t-ico"><i class="fa-solid fa-microchip"></i></div><h3>Technology, Innovation &amp; Digital Climate Action</h3><p>AI, IoT, e-waste management and digital tools for climate action and advocacy.</p></div>
+      <div class="t-card r d3"><div class="t-ico"><i class="fa-solid fa-palette"></i></div><h3>Arts &amp; Culture for Climate</h3><p>Music, poetry, dance, drama, murals, waste-to-art and storytelling for climate.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMME -->
+<section class="blk" id="programme">
+  <div class="wrap">
+    <div class="sec-header center">
+      <div class="eyebrow-y">The Climate Month</div>
+      <div class="sec-title">Five phases, one journey.</div>
+      <div class="sec-sub">September 26 – October 29, 2026. From National Umuganda Day to the National LCOY Main Event in Kigali.</div>
+    </div>
+    <div class="tl">
+      <div class="tl-item r"><div class="tl-dot"></div><div class="tl-card"><div class="tl-date">September 26 · Nationwide</div><h3>Umuganda Launch</h3><p>Climate Month launches on National Umuganda Day with community tree planting (including fruit trees), clean-ups, climate awareness campaigns and nutrition distribution across all villages.</p><span class="tl-reach">All 30 districts</span></div></div>
+      <div class="tl-item r d1"><div class="tl-dot"></div><div class="tl-card"><div class="tl-date">September 27 – October 26 · 30 Districts</div><h3>District Dialogues</h3><p>30 district-level youth dialogues run continuously through the month. Each produces a local priority list feeding provincial consultations and the National LCOY.</p><span class="tl-reach">1,500–3,000 youth</span></div></div>
+      <div class="tl-item r d2"><div class="tl-dot"></div><div class="tl-card"><div class="tl-date">October 5–8 · 4 Provinces</div><h3>Provincial Consultations</h3><p>University-hosted gatherings at UR Nyagatare, UR Huye, UR Musanze and IPRC Karongi elevate rural youth priorities to the national level.</p><span class="tl-reach">800–1,200 youth</span></div></div>
+      <div class="tl-item r d3"><div class="tl-dot"></div><div class="tl-card"><div class="tl-date">October 9–27 · Virtual + Kigali</div><h3>Statement Consolidation</h3><p>A youth drafting team consolidates all inputs into the National Children &amp; Youth Climate Position Paper.</p><span class="tl-reach">15–20 drafters</span></div></div>
+      <div class="tl-item r d4"><div class="tl-dot"></div><div class="tl-card"><div class="tl-date">October 28–29 · Kigali</div><h3>National LCOY Main Event</h3><p>A 2-day conference: high-level panels, World Café thematic labs, a youth innovation showcase &amp; pitching event, arts performances, a policy lab and a validation plenary. Closes at 15:00 on Oct 29.</p><span class="tl-reach">600–800 youth</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGACY -->
+<section class="blk cream" id="legacy">
+  <div class="wrap">
+    <div class="sec-header center">
+      <div class="eyebrow-y">Legacy &amp; Impact</div>
+      <div class="sec-title">Built to last beyond October.</div>
+      <div class="sec-sub">Post-LCOY, a Sustainability &amp; Legacy Working Group turns the conference into permanent infrastructure.</div>
+    </div>
+    <div class="legacy-grid">
+      <div class="lg-card r"><div class="lg-num">50,000</div><div class="lg-txt">Trees planted nationwide</div></div>
+      <div class="lg-card r d1"><div class="lg-num">50</div><div class="lg-txt">School environment clubs</div></div>
+      <div class="lg-card r d2"><div class="lg-num">5</div><div class="lg-txt">University chapters</div></div>
+      <div class="lg-card r d3"><div class="lg-num">1</div><div class="lg-txt">Permanent Rwanda Youth Climate Coalition</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="blk" id="join">
+  <div class="wrap">
+    <div class="cta-banner r">
+      <h2>Be part of Rwanda's climate generation.</h2>
+      <p>Whether you want to register as a delegate, volunteer, host a district dialogue, pitch an innovation or partner with us — there's a place for you in LCOY Rwanda 2026.</p>
+      <div class="cta-actions">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc05fQWdb0bnw5-J1wHMxsNk0yUPEoSePlmW-2PGy-hrqqUSA/viewform?usp=header" target="_blank" rel="noopener" class="btn btn-yellow">Register Now <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="mailto:lcoyrwanda2026@kigaliclimateactionweek.org" class="btn btn-ghost"><i class="fa-regular fa-envelope"></i> Contact the Organisers</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="ft-flag"></div><div class="ft-inner"><div class="ft-top">
+  <div class="ft-brand"><img src="images/wff-rwanda-logo.png" alt="WFF Rwanda"><p>Youth at the centre of Rwanda&rsquo;s food systems and climate transformation. A national chapter of the World Food Forum, hosted by FAO.</p><div class="ft-socials"><a href="https://www.instagram.com/waborwanda/" target="_blank" rel="noopener" class="ft-soc"><i class="fa-brands fa-instagram"></i></a><a href="https://x.com/" target="_blank" rel="noopener" class="ft-soc"><i class="fa-brands fa-x-twitter"></i></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="ft-soc"><i class="fa-brands fa-linkedin-in"></i></a><a href="https://www.facebook.com/" target="_blank" rel="noopener" class="ft-soc"><i class="fa-brands fa-facebook-f"></i></a></div></div>
+  <div><h4>Explore</h4><ul class="ft-links"><li><a href="index.html#who">Who We Are</a></li><li><a href="index.html#groups">What We Do</a></li><li><a href="lcoy-2026.html">LCOY 2026</a></li><li><a href="index.html#events">Events</a></li></ul></div>
+  <div><h4>LCOY Contact</h4><ul class="ft-links"><li><a href="mailto:lcoyrwanda2026@kigaliclimateactionweek.org">lcoyrwanda2026@kigaliclimateactionweek.org</a></li><li><a href="tel:+250787712266">+250 787 712 266</a></li><li><a href="https://docs.google.com/forms/d/e/1FAIpQLSc05fQWdb0bnw5-J1wHMxsNk0yUPEoSePlmW-2PGy-hrqqUSA/viewform?usp=header" target="_blank" rel="noopener">Registration Form</a></li><li><a href="https://kigaliclimateactionweek.org" target="_blank" rel="noopener">Kigali Climate Action Week</a></li><li>Kigali, Rwanda</li></ul></div>
+</div><div class="ft-bottom"><span>&copy; 2026 World Food Forum Rwanda</span><span>This programme is tentative and may be adjusted in consultation with the LCOY Working Group and partners.</span></div></div></footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('shadow',window.scrollY>20));
+const burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+burger.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=(window.scrollY/h*100)+'%';});
+
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v');});},{threshold:0.08,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-72,behavior:'smooth'});}});});
+
+// Countdown to Climate Month launch — 26 Sept 2026, 00:00 CAT (UTC+2)
+(function(){
+  const target=new Date('2026-09-26T00:00:00+02:00').getTime();
+  const el={d:document.getElementById('cd-days'),h:document.getElementById('cd-hours'),m:document.getElementById('cd-mins'),s:document.getElementById('cd-secs')};
+  const cd=document.getElementById('countdown');
+  const pad=n=>String(n).padStart(2,'0');
+  function tick(){
+    const diff=target-Date.now();
+    if(diff<=0){cd.innerHTML='<div class="cd-box" style="min-width:auto;padding:16px 26px;"><span class="cd-num" style="font-size:1.3rem;">Happening now &mdash; the Climate Month has begun!</span></div>';return;}
+    const d=Math.floor(diff/86400000),h=Math.floor(diff/3600000)%24,m=Math.floor(diff/60000)%60,s=Math.floor(diff/1000)%60;
+    el.d.textContent=d;el.h.textContent=pad(h);el.m.textContent=pad(m);el.s.textContent=pad(s);
+    requestAnimationFrame(()=>setTimeout(tick,1000));
+  }
+  tick();
+})();
+</script>
+</body>
+</html>
