@@ -30,8 +30,9 @@ jobs:
           protocol: ftps
           # Trailing slashes matter to this action. Do not remove them.
           local-dir: ./lcoy-site/
-          # Assumes the FTP account's home directory IS public_html.
-          # If you use the main cPanel login instead, change this to public_html/
+          # The FTP account is rooted at /home/kigayhvn/public_html, so the
+          # login already lands in the web root. Must stay ./ — setting this to
+          # public_html/ would deploy into public_html/public_html/.
           server-dir: ./
           exclude: |
             **/README.md
