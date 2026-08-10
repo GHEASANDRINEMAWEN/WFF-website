@@ -22,6 +22,8 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # A stalled FTP connection would otherwise hold a runner for six hours.
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
