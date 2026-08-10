@@ -13,6 +13,12 @@ on:
       - '.github/workflows/deploy-lcoy.yml'
   workflow_dispatch:
 
+# Two deploys writing to the same FTP directory at once corrupt the action's
+# sync state. Queue them instead of racing.
+concurrency:
+  group: deploy-lcoy
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
