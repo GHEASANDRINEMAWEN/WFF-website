@@ -35,6 +35,18 @@ The workflow needs three repository secrets
 The server is a mirror of this folder, so never edit files through cPanel
 File Manager — a later deploy will overwrite them.
 
+## Troubleshooting deploys
+
+`530 Login authentication failed` — the FTP server rejected the credentials.
+The username must be the **full** address (`lcoy@kigaliclimateactionweek.org`),
+not just the local part. Check also that the three values sit under
+*Repository secrets* rather than *Environment secrets*: environment secrets
+resolve to empty here, because this job declares no environment.
+
+The host is Pure-FTPd advertising `AUTH TLS` on port 21, so `protocol: ftps`
+(explicit TLS) is correct. Port 990 is closed — do not switch to
+`ftps-legacy`.
+
 ## HTTPS
 
 The HTTPS redirect in `.htaccess` ships commented out. Enable it only once
