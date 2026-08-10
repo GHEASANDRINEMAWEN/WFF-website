@@ -1,0 +1,7 @@
+# Deployed files keep LF endings. Apache can choke on CRLF in .htaccess.
+* text=auto eol=lf
+
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary

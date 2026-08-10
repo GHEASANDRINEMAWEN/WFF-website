@@ -1,0 +1,38 @@
+name: Deploy LCOY site to Namecheap
+
+# Publishes lcoy-site/ to the LCOY domain on Namecheap cPanel hosting.
+#
+# Only the contents of lcoy-site/ are uploaded. The repo root — the main WFF
+# site, the .docx concept notes and the .zip archives — is never published by
+# this workflow, which is the whole reason the site lives in a subfolder.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'lcoy-site/**'
+      - '.github/workflows/deploy-lcoy.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync lcoy-site/ to cPanel over FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Explicit TLS. Never change this to "ftp" — that sends the password
+          # across the internet in clear text.
+          protocol: ftps
+          # Trailing slashes matter to this action. Do not remove them.
+          local-dir: ./lcoy-site/
+          # Assumes the FTP account's home directory IS public_html.
+          # If you use the main cPanel login instead, change this to public_html/
+          server-dir: ./
+          exclude: |
+            **/README.md
+            **/.gitattributes
