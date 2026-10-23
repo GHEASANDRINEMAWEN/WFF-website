@@ -42,6 +42,10 @@ jobs:
           # login already lands in the web root. Must stay ./ — setting this to
           # public_html/ would deploy into public_html/public_html/.
           server-dir: ./
+          # The server lost its files while the old sync-state file still listed
+          # them, so diff-only deploys never restored them. A fresh state name
+          # forces one full upload; it uploads only and deletes nothing.
+          state-name: .ftp-deploy-sync-state-v2.json
           exclude: |
             **/README.md
             **/.gitattributes
