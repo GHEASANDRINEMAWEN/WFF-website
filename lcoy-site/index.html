@@ -189,6 +189,27 @@ section.blk{padding:100px 0;position:relative;}
 .comp-prize{grid-column:1/-1;background:var(--yellow-soft);border-color:rgba(245,166,35,0.28);}
 .comp-prize i{color:var(--yellow);}
 
+/* Field reports teasers */
+.blk.night{background:linear-gradient(160deg,#0B2E22 0%,#0F1419 55%,#0B2138 100%);}
+.night .sec-title{color:var(--white);}.night .sec-sub{color:rgba(255,255,255,0.6);}
+.night .btn-dark{background:var(--yellow);color:var(--dark);}.night .btn-dark:hover{background:var(--yellow-bright);}
+.rep-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:20px;}
+.rep-side{display:flex;flex-direction:column;gap:20px;}
+.rep{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:220px;border-radius:20px;overflow:hidden;color:var(--white);background:#0F1419 center/cover no-repeat;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1),box-shadow 0.45s;}
+.rep::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,20,25,0.05) 20%,rgba(15,20,25,0.88) 100%);}
+.rep:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(0,0,0,0.14);}
+.rep>*{position:relative;z-index:1;}
+.rep-main{min-height:460px;}
+.rep-body{padding:26px 26px 24px;}
+.rep-tag{display:inline-flex;align-items:center;gap:8px;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--yellow-bright);margin-bottom:10px;}
+.rep-new{background:var(--yellow);color:var(--dark);padding:3px 10px;border-radius:100px;}
+.rep h3{font-size:1.12rem;font-weight:800;letter-spacing:-0.02em;line-height:1.25;margin-bottom:8px;}
+.rep-main h3{font-size:clamp(1.4rem,2.4vw,1.9rem);}
+.rep p{font-size:0.85rem;line-height:1.6;color:rgba(255,255,255,0.78);margin-bottom:12px;max-width:52ch;}
+.rep-more{display:inline-flex;align-items:center;gap:8px;font-size:0.82rem;font-weight:700;color:var(--white);}
+.rep-more i{transition:transform 0.3s;}.rep:hover .rep-more i{transform:translateX(4px);}
+.rep-all{display:flex;justify-content:center;margin-top:34px;}
+
 /* Legacy */
 .legacy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
 .lg-card{text-align:center;padding:34px 22px;border-radius:18px;background:var(--white);border:1px solid var(--border);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
@@ -254,7 +275,7 @@ footer h4{color:var(--white);font-size:0.7rem;font-weight:700;text-transform:upp
 .partner-card span{font-size:0.75rem;font-weight:600;color:var(--text);line-height:1.45;}
 
 /* Responsive */
-@media(max-width:1024px){.wrap,.nav-inner,.ft-inner,.chero-inner{padding-left:32px;padding-right:32px;}.themes-grid{grid-template-columns:1fr 1fr;}.legacy-grid,.stat-grid{grid-template-columns:1fr 1fr;}.about-grid{grid-template-columns:1fr;gap:36px;}.ft-top{grid-template-columns:1fr;}.partner-grid{grid-template-columns:repeat(3,1fr);}.comp{grid-template-columns:1fr;gap:24px;}}
+@media(max-width:1024px){.wrap,.nav-inner,.ft-inner,.chero-inner{padding-left:32px;padding-right:32px;}.themes-grid{grid-template-columns:1fr 1fr;}.legacy-grid,.stat-grid{grid-template-columns:1fr 1fr;}.about-grid{grid-template-columns:1fr;gap:36px;}.ft-top{grid-template-columns:1fr;}.partner-grid{grid-template-columns:repeat(3,1fr);}.comp{grid-template-columns:1fr;gap:24px;}.rep-grid{grid-template-columns:1fr;}.rep-main{min-height:380px;}}
 @media(max-width:600px){.nav-links{display:none;}.burger{display:block;}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);padding:20px 32px;gap:16px;box-shadow:0 12px 40px rgba(0,0,0,0.06);border-top:1px solid var(--border);}.themes-grid,.legacy-grid,.stat-grid,.host-grid{grid-template-columns:1fr;}.partner-grid{grid-template-columns:1fr 1fr;}.host-card{padding:28px 24px;}.comp{padding:28px 24px;}.comp-cats{grid-template-columns:1fr;}section.blk{padding:64px 0;}.cta-banner,.chero-inner{padding-left:28px;padding-right:28px;}.tl-item{padding-left:54px;}.ft-bottom{flex-direction:column;gap:8px;text-align:center;}}
 </style>
 </head>
@@ -268,7 +289,7 @@ footer h4{color:var(--white);font-size:0.7rem;font-weight:700;text-transform:upp
       <li><a href="#about">About</a></li>
       <li><a href="#themes">Themes</a></li>
       <li><a href="#programme">Programme</a></li>
-      <li><a href="#host">Apply</a></li>
+      <li><a href="#reports">Reports</a></li>
       <li><a href="#partners">Partners</a></li>
       <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSc05fQWdb0bnw5-J1wHMxsNk0yUPEoSePlmW-2PGy-hrqqUSA/viewform?usp=header" target="_blank" rel="noopener" class="nav-cta"><i class="fa-solid fa-pen-to-square" style="font-size:0.65rem;"></i> Register</a></li>
     </ul>
@@ -404,6 +425,44 @@ footer h4{color:var(--white);font-size:0.7rem;font-weight:700;text-transform:upp
   </div>
 </section>
 
+<!-- FIELD REPORTS -->
+<section class="blk night" id="reports">
+  <div class="wrap">
+    <div class="sec-header center">
+      <div class="eyebrow-y">From the Field</div>
+      <div class="sec-title">What happened when we showed up.</div>
+      <div class="sec-sub">LCOY volunteers are visiting schools across Rwanda. Fresh reports, newest first.</div>
+    </div>
+    <div class="rep-grid">
+      <a href="reports.html#nyagatare" class="rep rep-main r" style="background-image:url('images/reports/nyagatare-1.jpg')">
+        <div class="rep-body">
+          <div class="rep-tag"><span class="rep-new">Latest</span> Nyagatare &middot; 16 Oct</div>
+          <h3>928 students, one hall, and a club born on the spot.</h3>
+          <p>In a district where dry spells leave taps empty, students asked what they could actually do. By the end of the afternoon they had an answer.</p>
+          <span class="rep-more">Read the story <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>
+      <div class="rep-side">
+        <a href="reports.html#kitabi" class="rep r d1" style="background-image:url('images/reports/kitabi-1.jpg')">
+          <div class="rep-body">
+            <div class="rep-tag">Nyamagabe &middot; 14 Oct</div>
+            <h3>Planting a tree is the easy part.</h3>
+            <span class="rep-more">Read more <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a href="reports.html#kamonyi" class="rep r d2" style="background-image:url('images/reports/kamonyi-1.jpg')">
+          <div class="rep-body">
+            <div class="rep-tag">Kamonyi &middot; 13 Oct</div>
+            <h3>“Where do we get the trees?” 346 students want to know.</h3>
+            <span class="rep-more">Read more <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="rep-all"><a href="reports.html" class="btn btn-dark">All 6 field reports <i class="fa-solid fa-arrow-right"></i></a></div>
+  </div>
+</section>
+
 <!-- LEGACY -->
 <section class="blk cream" id="legacy">
   <div class="wrap">
@@ -506,7 +565,7 @@ footer h4{color:var(--white);font-size:0.7rem;font-weight:700;text-transform:upp
 
 <footer><div class="ft-flag"></div><div class="ft-inner"><div class="ft-top">
   <div class="ft-brand"><img src="images/wff-rwanda-logo.png" alt="WFF Rwanda"><p>Youth at the centre of Rwanda&rsquo;s food systems and climate transformation. A national chapter of the World Food Forum, hosted by FAO.</p><div class="ft-socials"><a href="https://www.instagram.com/lcoyrwanda/" target="_blank" rel="noopener" class="ft-soc" aria-label="LCOY Rwanda on Instagram"><i class="fa-brands fa-instagram"></i></a><a href="https://x.com/LCOYRWANDA26" target="_blank" rel="noopener" class="ft-soc" aria-label="LCOY Rwanda on X"><i class="fa-brands fa-x-twitter"></i></a><a href="https://www.linkedin.com/company/lcoy-rwanda/" target="_blank" rel="noopener" class="ft-soc" aria-label="LCOY Rwanda on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href="https://www.facebook.com/profile.php?id=61591460940874" target="_blank" rel="noopener" class="ft-soc" aria-label="LCOY Rwanda on Facebook"><i class="fa-brands fa-facebook-f"></i></a></div></div>
-  <div><h4>Explore</h4><ul class="ft-links"><li><a href="#about">About</a></li><li><a href="#themes">Themes</a></li><li><a href="#programme">Programme</a></li><li><a href="#host">Apply to Host</a></li><li><a href="#partners">Partners</a></li><li><a href="#legacy">Legacy</a></li><li><a href="#join">Join Us</a></li></ul></div>
+  <div><h4>Explore</h4><ul class="ft-links"><li><a href="#about">About</a></li><li><a href="#themes">Themes</a></li><li><a href="#programme">Programme</a></li><li><a href="reports.html">Field Reports</a></li><li><a href="#host">Apply to Host</a></li><li><a href="#partners">Partners</a></li><li><a href="#legacy">Legacy</a></li><li><a href="#join">Join Us</a></li></ul></div>
   <div><h4>LCOY Contact</h4><ul class="ft-links"><li><a href="mailto:lcoyrwanda2026@kigaliclimateactionweek.org">lcoyrwanda2026@kigaliclimateactionweek.org</a></li><li><a href="mailto:rwalcoy2026@worldfoodforumrwanda.org">rwalcoy2026@worldfoodforumrwanda.org</a></li><li><a href="tel:+250787712266">+250 787 712 266</a></li><li><a href="https://docs.google.com/forms/d/e/1FAIpQLSc05fQWdb0bnw5-J1wHMxsNk0yUPEoSePlmW-2PGy-hrqqUSA/viewform?usp=header" target="_blank" rel="noopener">Registration Form</a></li><li><a href="https://kigaliclimateactionweek.org" target="_blank" rel="noopener">Kigali Climate Action Week</a></li><li>Kigali, Rwanda</li></ul></div>
 </div><div class="ft-bottom"><span>&copy; 2026 World Food Forum Rwanda</span><span>This programme is tentative and may be adjusted in consultation with the LCOY Working Group and partners.</span></div></div></footer>
 
